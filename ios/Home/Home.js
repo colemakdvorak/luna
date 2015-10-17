@@ -1,5 +1,6 @@
 const React = require('react-native');
 const Palette = require('../styles/Palette');
+const ReboundBall = require('./ReboundBall.js')
 
 const {
   StyleSheet,
@@ -16,8 +17,8 @@ class Home extends React.Component {
 
   render() {
     return (
-      <View>
-        <Text>LUNA</Text>
+      <View style={styles.container}>
+        <ReboundBall />
       </View>
     );
   }
@@ -26,8 +27,12 @@ class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'stretch'
+    //backgroundColor: '#000000',
+    flexDirection: 'column',
+    //justifyContent: 'flex-end',
+    alignItems: 'center',
+    paddingLeft: 0,
+    marginLeft: 0
   },
   backdropView: {
     height: 250,
