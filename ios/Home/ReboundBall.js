@@ -1,24 +1,27 @@
-var React = require('react-native');
-var Dimensions = require('Dimensions');
-var windowSize = Dimensions.get('window');
-var {
+const React = require('react-native');
+const Dimensions = require('Dimensions');
+const windowSize = Dimensions.get('window');
+
+const {
   AppRegistry,
   StyleSheet,
   View,
   Animated, 
   PanResponder
 } = React;
-var SQUARE_DIMENSIONS = 100;
-var CIRCLE_SIZE = windowSize.width*0.75;
-var ReboundBall = React.createClass({
-  
-  getInitialState: function() {
-    return {
+
+const CIRCLE_SIZE = windowSize.width*0.75;
+
+class ReboundBall extends React.Component {
+  constructor(props) {
+    super();
+    this.state = {
         listening: false,
         pan: new Animated.ValueXY()
     };
-  },
-  componentWillMount: function() {
+  }
+
+  componentWillMount() {
     this._animatedValueX = 0;
     this._animatedValueY = 0; 
     this.state.pan.x.addListener((value) => this._animatedValueX = value.value);
@@ -42,12 +45,14 @@ var ReboundBall = React.createClass({
             }).start();
           }
         });
-  },  
-  componentWillUnmount: function() {
+  }
+
+  componentWillUnmount() {
     this.state.pan.x.removeAllListeners();  
     this.state.pan.y.removeAllListeners();
-  },
-  getStyle: function() {
+  }
+
+  getStyle() {
     return [
               styles.circle, 
               {
@@ -64,8 +69,9 @@ var ReboundBall = React.createClass({
                 opacity: this.state.pan.y.interpolate({inputRange: [-300, 0, 300], outputRange: [0.5, 1, 0.5]})
               }
             ];
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <View style={styles.container}>
         <Animated.View 
@@ -75,8 +81,9 @@ var ReboundBall = React.createClass({
       </View>
     );
   }
-});
-var styles = StyleSheet.create({
+};
+
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-end',
