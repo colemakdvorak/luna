@@ -1,5 +1,6 @@
 const React = require('react-native');
 const Palette = require('../styles/Palette');
+const Option = require('./Option.js')
 
 const {
   View,
@@ -39,14 +40,7 @@ class SubSetting extends React.Component {
 
   renderOption(option) {
     return (
-      <View>
-        <Text>
-          {option.name}
-        </Text>
-        <SwitchIOS
-          value={option.onOff}
-        />
-      </View>
+      <Option details={option} />
     );
   }
 }

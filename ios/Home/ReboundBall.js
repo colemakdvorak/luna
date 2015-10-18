@@ -3,7 +3,6 @@ const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
 
 const {
-  AppRegistry,
   StyleSheet,
   View,
   Animated, 
