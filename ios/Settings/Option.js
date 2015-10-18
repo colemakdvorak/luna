@@ -1,7 +1,7 @@
 const React = require('react-native');
 //const Palette = require('../constants/Palette');
 
-var {
+const {
   StyleSheet,
   Text,
   View,
@@ -9,7 +9,7 @@ var {
 } = React;
 
 class Option extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       name: props.details.name,

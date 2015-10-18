@@ -1,6 +1,6 @@
 const React = require('react-native');
 const Palette = require('../styles/Palette');
-const Option = require('./Option.js')
+const Option = require('./Option.js');
 
 const {
   View,
